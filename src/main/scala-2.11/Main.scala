@@ -2,8 +2,10 @@ object Main {
 
   class Switch(var isOn: Boolean)
 
-  def toggle(switch: Switch): Unit = {
-    if (switch.isOn) switch.isOn = false else switch.isOn = true
+  def toggle(switch: Switch): Switch = {
+    val ret = new Switch(switch.isOn)
+    if (ret.isOn) ret.isOn = false else ret.isOn = true
+    ret
   }
 
 }
