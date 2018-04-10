@@ -1,9 +1,18 @@
 object Main {
 
-  class Switch(var isOn: Boolean)
+  case class Switch(isOn: Boolean)
 
-  def toggle(switch: Switch): Unit = {
-    if (switch.isOn) switch.isOn = false else switch.isOn = true
+  def toggle(switch: Switch): Switch = {
+    if (switch.isOn) Switch(false) else Switch(true)
   }
 
+
+  sealed abstract class SwitchState()
+  case class On() extends SwitchState
+  case class Off() extends SwitchState
+
+  def toggle(state:  SwitchState): SwitchState = state match {
+    case On() => Off()
+    case Off() => On()
+  }
 }
