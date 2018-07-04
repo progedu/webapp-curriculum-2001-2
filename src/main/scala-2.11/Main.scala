@@ -1,7 +1,7 @@
 object Main {
 
-  class Switch(var isOn: Boolean)
+  case class Switch(isOn: Boolean)
 
-  def toggle(switch: Switch): Switch = new Switch(!switch.isOn)
+  def toggle(switch: Switch): Switch = Switch(!switch.isOn)
 
 }
