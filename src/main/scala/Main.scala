@@ -1,9 +1,7 @@
 object Main {
 
-  class Switch(var isOn: Boolean)
+  case class Switch(isOn: Boolean)
 
-  def toggle(switch: Switch): Unit = {
-    if (switch.isOn) switch.isOn = false else switch.isOn = true
-  }
+  def toggle(switch: Switch): Switch = Switch(!switch.isOn)
 
 }
